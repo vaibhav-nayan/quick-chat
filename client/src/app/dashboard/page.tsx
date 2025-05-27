@@ -8,6 +8,7 @@ const dashboard = async () => {
     const session : CustomnSession|null = await getServerSession(authOptions)
   return (
     <div>
+        <p>{JSON.stringify(session, null, 2)}</p>
         <DashNav name={session?.user?.name!} image={session?.user?.image ?? undefined}/>
     </div>
   )
