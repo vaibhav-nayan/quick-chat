@@ -5,10 +5,10 @@ import UserReviews from "@/components/base/UserReviews";
 import Footer from "@/components/base/Footer";
 import { get } from "http";
 import { getServerSession } from "next-auth";
-import { authOption, CustomnSession } from "./api/auth/[...nextauth]/options";
+import { authOptions, CustomnSession } from "./api/auth/[...nextauth]/options";
 
 export default async function LandingPage() {
-  const session: CustomnSession | any = await getServerSession(authOption);
+  const session: CustomnSession | any = await getServerSession(authOptions);
 
   return (
 
