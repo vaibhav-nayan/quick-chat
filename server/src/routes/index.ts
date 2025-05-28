@@ -14,4 +14,8 @@ router.post("/chat-group", authMiddleware, ChatGroupController.store);
 router.put("/chat-group/:id", authMiddleware, ChatGroupController.update);
 router.delete("/chat-group/:id", authMiddleware, ChatGroupController.destroy);
 
+//Chat Group Users
+router.get("/chat-group-users", ChatGroupController.index)
+router.post("/chat-group-users", ChatGroupController.store)
+
 export default router;

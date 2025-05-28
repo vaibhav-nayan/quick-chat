@@ -1,15 +1,25 @@
 import ChatBase from '@/components/chat/ChatBase'
+import { fetchChatGroup, fetchChatUsers } from '@/fetch/groupFetch';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
-const Chat = ({params} : {params: {
+const Chat = async ({params} : {params: {
     id: string
 }}) => {
 
-    console.log("The group id is ", params.id)
+  if(params.id.length !== 36){
+    return notFound();
+  }
+  const group: ChatGroupType | null = await fetchChatGroup(params.id);
+
+  if(group === null){
+    return notFound();
+  }
+
+  const users: Array<GroupChatUserType> | [] = await fetchChatUsers(params.id)
   return (
     <>
-        <div>Hello I am Chatting</div>
-        <ChatBase/>
+        <ChatBase group={group} users={users} />
     </>
   )
 }

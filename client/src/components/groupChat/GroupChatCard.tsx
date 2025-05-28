@@ -12,7 +12,7 @@ export default function GroupChatCard({
 }) {
   return (
     <Card>
-      <CardHeader className="flex-row justify-between items-center ">
+      <CardHeader className="flex justify-between">
         <CardTitle className="text-2xl">{group.title}</CardTitle>
         <GroupChatCardMenu user={user} group={group} />
       </CardHeader>
