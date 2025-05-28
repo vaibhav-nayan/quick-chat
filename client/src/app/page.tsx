@@ -6,10 +6,10 @@ import Footer from "@/components/base/Footer";
 import { get } from "http";
 import { getServerSession } from "next-auth";
 import { authOptions, CustomnSession } from "./api/auth/[...nextauth]/options";
+import { fetchChatGroups } from "@/fetch/groupFetch";
 
 export default async function LandingPage() {
   const session: CustomnSession | any = await getServerSession(authOptions);
-
   return (
 
     <div className="min-h-screen flex flex-col ">
