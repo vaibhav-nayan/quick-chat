@@ -1,11 +1,9 @@
 "use client"
-import { getSocket } from '@/lib/socket.config';
 import React, { useEffect, useMemo, useState } from 'react'
-import { Button } from '../ui/button';
-import { v4 as uuidV4 } from 'uuid'
 import ChatSidebar from './ChatSidebar';
 import ChatNav from './ChatNav';
 import ChatUserDialog from './ChatUserDialog';
+import Chats from './Chats';
 
 const ChatBase = ({group, users, oldMessages}: {
     group: ChatGroupType,
@@ -20,8 +18,7 @@ const ChatBase = ({group, users, oldMessages}: {
     const data = localStorage.getItem(group.id as string);
     if(data) {
       const pData = JSON.parse(data);
-      setChatUser(pData);
-    }
+      setChatUser(pData);    }
   }, [chatUser]);
      
   return (
