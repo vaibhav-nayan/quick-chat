@@ -11,6 +11,8 @@ import {Server} from 'socket.io'
 import { createServer } from "http";
 import { setupSocket } from "./socket.js";
 import { instrument } from "@socket.io/admin-ui";
+import { connectKafkaProducer } from "./config/kafka.config.js";
+import { consumeMessages } from "./helper.js";
 
 const server = createServer(app);
 const io = new Server(server, {
@@ -40,5 +42,9 @@ app.get("/", (req: Request, res: Response) => {
 
 //Routes
 app.use("/api" , Routes)
+
+connectKafkaProducer().catch(err=>{console.log("Something went wrong while connecting kafka producer", err)})
+
+consumeMessages("chats").catch(err=>{console.log("Something went wrong while connecting kafka consumer", err)})
 
 server.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
