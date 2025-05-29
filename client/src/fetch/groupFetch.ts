@@ -25,7 +25,7 @@ export const fetchChatGroup = async (id : string) =>{
         cache: "no-cache"
     })
 
-    if(!res.ok) throw new Error('Failed to fetch chat groups. Try again later!')
+    if(!res.ok) throw new Error('Failed to fetch chat group. Try again later!')
     
     const response = await res.json()
     if(response?.data) {
@@ -39,7 +39,7 @@ export const fetchChatUsers = async (id : string) =>{
         cache: "no-cache"
     })
 
-    if(!res.ok) throw new Error('Failed to fetch chat groups. Try again later!')
+    if(!res.ok) throw new Error('Failed to fetch chat group users. Try again later!')
     
     const response = await res.json()
     if(response?.data) {
