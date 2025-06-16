@@ -5,13 +5,13 @@ import { fetchChatGroup, fetchChatUsers } from '@/fetch/groupFetch';
 import { notFound } from 'next/navigation';
 import React from 'react'
 
-type ChatPageProps = {
+type Props = {
   params: {
     id: string;
   };
 };
 
-const Chat = async ({ params }: ChatPageProps) => {
+export default async function Chat ({ params }: Props) {
 
   if(params.id.length !== 36){
     return notFound();
@@ -32,5 +32,3 @@ const Chat = async ({ params }: ChatPageProps) => {
     </>
   )
 }
-
-export default Chat
