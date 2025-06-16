@@ -7,4 +7,5 @@ export const getSocket = () : Socket =>{
         socket = io(Env.BACKEND_URL, {autoConnect: false})
         return socket
     }
+    return socket
 }
