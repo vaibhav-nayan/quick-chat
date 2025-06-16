@@ -5,8 +5,16 @@ import Routes from "./routes/index.js"
 import { createAdapter } from "@socket.io/redis-streams-adapter";
 import redis from './config/redis.config.js'
 
+const corsOptions = {
+  origin: [
+    "https://quick-chat-nyan.vercel.app", // ✅ your frontend domain
+    "https://admin.socket.io",             // ✅ optional: socket.io admin UI
+  ],
+  credentials: true, // ✅ allow cookies/auth headers
+};
+
 const app: Application = express();
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 10000;
 import {Server} from 'socket.io'
 import { createServer } from "http";
 import { setupSocket } from "./socket.js";
@@ -32,7 +40,7 @@ setupSocket(io);
 export {io};
 
 // * Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
