@@ -17,7 +17,7 @@ import { consumeMessages } from "./helper.js";
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://admin.socket.io"],
+    origin: ["https://quick-chat-nyan.vercel.app", "https://admin.socket.io"],
     credentials: true
   },
   adapter: createAdapter(redis)
