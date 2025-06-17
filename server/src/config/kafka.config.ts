@@ -2,7 +2,7 @@ import { Kafka, logLevel } from "kafkajs";
 
 const kafka = new Kafka({
   clientId: 'quick-chat-app',
-  brokers: [process.env.KAFKA_BROKER],
+  brokers: ['pkc-921jm.us-east-2.aws.confluent.cloud:9092'],
   ssl: true,
   sasl: {
     mechanism: 'plain',

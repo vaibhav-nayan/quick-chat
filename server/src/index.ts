@@ -7,7 +7,8 @@ import redis from './config/redis.config.js'
 
 const corsOptions = {
   origin: [
-    "https://quick-chat-nyan.vercel.app", // ✅ your frontend domain
+    "https://quick-chat-nyan.vercel.app",
+    "http://localhost:3000", // ✅ your frontend domain
     "https://admin.socket.io",             // ✅ optional: socket.io admin UI
   ],
   credentials: true, // ✅ allow cookies/auth headers
@@ -25,7 +26,7 @@ import { consumeMessages } from "./helper.js";
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://quick-chat-nyan.vercel.app", "https://admin.socket.io"],
+    origin: ["https://quick-chat-nyan.vercel.app","http://localhost:3000", "https://admin.socket.io"],
     credentials: true
   },
   adapter: createAdapter(redis)
