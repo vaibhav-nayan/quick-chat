@@ -19,7 +19,7 @@ const ChatBase = ({group, users, oldMessages}: {
     if(data) {
       const pData = JSON.parse(data);
       setChatUser(pData);    }
-  }, [chatUser]);
+  }, [group?.id]);
      
   return (
     <div className='flex'>
