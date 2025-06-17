@@ -3,7 +3,8 @@ import { CHAT_GROUP_URL, CHAT_GROUP_USER_URL } from "@/lib/apiEndpoints"
 export const fetchChatGroups = async (token : string) =>{
     const res = await fetch(CHAT_GROUP_URL,{
         headers : {
-            Authorization : token
+            Authorization : token,
+            'Content-Type': 'application/json',
         },
         next: {
             revalidate: 60*60,
